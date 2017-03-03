@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>soundboard-osgi</artifactId>
+        <groupId>swt6</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>soundboard-osgi-basedrum</artifactId>
+    <packaging>bundle</packaging>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+
+                <configuration>
+                    <instructions>
+                        <Export-Package>
+                            swt6.osgi.shape.basedrum;version="1.0"
+                        </Export-Package>
+                        <Import-Package>
+                            swt6.osgi.pad;version="[1.0,2.0)",
+                            javafx.*,
+                            org.osgi.framework;version="[1.3,2.0)"
+                        </Import-Package>
+                        <Bundle-Activator>
+                            swt6.osgi.pad.basedrum.BasedrumActivator
+                        </Bundle-Activator>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>swt6</groupId>
+            <artifactId>soundboard-osgi-pad</artifactId>
+            <version>1.0.0</version>
+            <type>bundle</type>
+        </dependency>
+    </dependencies>
+
+</project>

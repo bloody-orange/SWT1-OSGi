@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SWT1-OSGi.iml" filepath="$PROJECT_DIR$/SWT1-OSGi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-basedrum/soundboard-osgi-basedrum.iml" filepath="$PROJECT_DIR$/soundboard-osgi-basedrum/soundboard-osgi-basedrum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-main/soundboard-osgi-main.iml" filepath="$PROJECT_DIR$/soundboard-osgi-main/soundboard-osgi-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-pad/soundboard-osgi-pad.iml" filepath="$PROJECT_DIR$/soundboard-osgi-pad/soundboard-osgi-pad.iml" />
     </modules>
   </component>
 </project>
