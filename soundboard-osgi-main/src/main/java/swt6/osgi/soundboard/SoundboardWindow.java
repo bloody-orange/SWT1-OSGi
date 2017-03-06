@@ -91,7 +91,6 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
             JavaFxUtils.runAndWait(() -> {
                 beatGrid.getChildren().clear();
                 for (PadFactory pf: manager.getFactories()) {
-                    logger.info("adding line for " + pf.getPadType());
                     addPadFactory(pf);
                 }
             });
@@ -105,10 +104,38 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
             JavaFxUtils.runAndWait(() -> {
                 BeatLineView line = new BeatLineView(pf, BEATS_AMOUNT);
                 beatGrid.getChildren().add(line);
-                logger.info("added line for " + pf.getPadType());
             });
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void addNewFactories() {
+        for (PadFactory pf: manager.getFactories()) {
+            if (getLineByName(pf.getPadType()) == null) {
+                addPadFactory(pf);
+            }
+        }
+    }
+
+    public void removeOldFactories() {
+        Iterator<Node> it = beatGrid.getChildren().iterator();
+        while (it.hasNext()) {
+            BeatLineView line = (BeatLineView)it.next();
+            logger.info("hellooo" + line.getPadType());
+            PadFactory pf = getPadFactoryByName(line.getPadType());
+            if (pf == null) {
+                logger.info("not found " + line.getPadType());
+                try {
+                    JavaFxUtils.runAndWait(() -> {
+                        it.remove();
+                    });
+                } catch (InterruptedException | ExecutionException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                logger.info("found " + pf.getPadType());
+            }
         }
     }
 
@@ -184,9 +211,13 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
     @Override
     public void handleEvent(org.osgi.service.event.Event event) {
         logger.info(this.getClass() + " handles event " + event.getTopic());
-        if (event.getTopic().equals(SoundboardManager.FACTORIES_CHANGED_EVENT)) {
-            loadFactories();
-        }/* else if (evt.getTopic().equals(OptimizerManager.ALL_OPTIMIZERS_FINISHED_EVENT)) {
+        if (event.getTopic().equals(SoundboardManager.FACTORY_ADDED_EVENT)) {
+            addNewFactories();
+        } else if (event.getTopic().equals(SoundboardManager.FACTORY_REMOVED_EVENT)) {
+            removeOldFactories();
+        }
+
+        /* else if (evt.getTopic().equals(OptimizerManager.ALL_OPTIMIZERS_FINISHED_EVENT)) {
             btnStart.setDisable(false);
             btnStart.setText(INITIAL_BUTTON_TEXT);
             tfInput.setDisable(false);

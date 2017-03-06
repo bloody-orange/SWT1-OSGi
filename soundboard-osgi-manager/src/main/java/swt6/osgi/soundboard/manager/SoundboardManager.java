@@ -14,7 +14,8 @@ import java.util.Map;
 public class SoundboardManager implements EventHandler {
     private final Logger logger = LoggerFactory.getLogger(SoundboardManager.class);
 
-    public static final String FACTORIES_CHANGED_EVENT = "swt/factories/FACTORIES_CHANGED";
+    public static final String FACTORY_ADDED_EVENT = "swt/factories/FACTORY_ADDED";
+    public static final String FACTORY_REMOVED_EVENT = "swt/factories/FACTORY_REMOVED";
 
     private EventAdmin eventAdmin;
     private List<PadFactory> factories = new ArrayList<>();
@@ -30,17 +31,20 @@ public class SoundboardManager implements EventHandler {
     public void addFactory(PadFactory f) {
         logger.info("adding factory for " + f.getPadType());
         factories.add(f);
-        fireChangedEvent();
+        fireAddedEvent();
     }
 
     public void removeFactory(PadFactory f) {
         logger.info("removing factory for " + f.getPadType());
         factories.remove(f);
-        fireChangedEvent();
+        fireRemovedEvent();
     }
 
-    private void fireChangedEvent() {
-        eventAdmin.sendEvent(new Event(FACTORIES_CHANGED_EVENT, (Map<String, ?>) null));
+    private void fireAddedEvent() {
+        eventAdmin.sendEvent(new Event(FACTORY_ADDED_EVENT, (Map<String, ?>) null));
+    }
+    private void fireRemovedEvent() {
+        eventAdmin.sendEvent(new Event(FACTORY_REMOVED_EVENT, (Map<String, ?>) null));
     }
 
     @Override

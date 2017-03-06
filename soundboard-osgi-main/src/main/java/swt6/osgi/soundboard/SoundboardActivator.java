@@ -41,7 +41,8 @@ public class SoundboardActivator implements BundleActivator {
 
         Dictionary<String, Object> props = new Hashtable<>();
         String[] topics = new String[] {
-            SoundboardManager.FACTORIES_CHANGED_EVENT
+            SoundboardManager.FACTORY_ADDED_EVENT,
+            SoundboardManager.FACTORY_REMOVED_EVENT
         };
         props.put(EventConstants.EVENT_TOPIC, topics);
         bundleContext.registerService(EventHandler.class.getName(), window, props);

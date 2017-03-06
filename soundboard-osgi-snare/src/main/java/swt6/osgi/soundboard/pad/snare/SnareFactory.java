@@ -21,7 +21,7 @@ public class SnareFactory implements PadFactory {
 
     @Override
     public String getPadType() {
-        return "HiHat";
+        return "Snare";
     }
 
     @Override
