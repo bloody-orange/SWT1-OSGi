@@ -67,6 +67,7 @@ class BeatLineView extends HBox implements EventHandler {
                 addPads();
             });
         } catch (InterruptedException | ExecutionException e) {
+            logger.error("Error in BeatLineView.setSize");
             e.printStackTrace();
         }
     }

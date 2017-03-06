@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1488796869024
-Build-Jdk: 1.8.0_112
+Bnd-LastModified: 1488814689926
+Build-Jdk: 1.8.0_77
 Built-By: Peter
 Bundle-Activator: swt6.osgi.soundboard.pad.hihat.HiHatActivator
 Bundle-ManifestVersion: 2

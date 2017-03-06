@@ -19,7 +19,7 @@ public abstract class AbstractPad implements Pad {
     private Class clazz;
     private String resourceName;
     private Media media;
-    private double volume = 1.0;
+    private double volume = 0.8;
     private PadFactory padFactory;
 
     public AbstractPad(PadFactory pf, EventAdmin ea, Class clazz, String resourceName) {
@@ -45,7 +45,6 @@ public abstract class AbstractPad implements Pad {
                     output.write(buffer, 0, n);
                 }
             }
-            System.out.println(temp.toPath().toString());
 
         } catch (IOException e) {
             e.printStackTrace();

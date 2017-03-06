@@ -46,11 +46,10 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
         this.bundleContext = bundleContext;
 
         try {
-            JavaFxUtils.runAndWait(() -> {
-                initWindow();
-            });
+            JavaFxUtils.runAndWait(this::initWindow);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+            logger.error("Error in SoundboardWindow.ctor");
         }
     }
 
@@ -70,15 +69,19 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
 
         btnPlayPause.setOnAction(e -> {
             if (isStopped) {
-                timer.restart();
+                logger.info("Loop started with " + BEATS_PER_MINUTE + "BPM");
+                timer.start();
                 isStopped = false;
             } else {
+                logger.info("Loop stopped");
                 timer.stop();
                 isStopped = true;
             }
         });
 
         rootPane = new VBox(title, beatGrid, btnPlayPause);
+        rootPane.setPrefHeight(200);
+        rootPane.setPrefWidth(600);
     }
 
     private void initLines() {
@@ -96,6 +99,7 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
             });
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+            logger.error("Error in SoundboardWindow.loadFactories");
         }
     }
 
@@ -107,6 +111,7 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
             });
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+            logger.error("Error in SoundboardWindow.addPadFactory");
         }
     }
 
@@ -122,7 +127,6 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
         Iterator<Node> it = beatGrid.getChildren().iterator();
         while (it.hasNext()) {
             BeatLineView line = (BeatLineView)it.next();
-            logger.info("hellooo" + line.getPadType());
             PadFactory pf = getPadFactoryByName(line.getPadType());
             if (pf == null) {
                 logger.info("not found " + line.getPadType());
@@ -132,6 +136,7 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
                     });
                 } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
+                    logger.error("Error in SoundboardWindow.removeOldFactories");
                 }
             } else {
                 logger.info("found " + pf.getPadType());
@@ -205,6 +210,7 @@ public class SoundboardWindow implements org.osgi.service.event.EventHandler {
                 stage.show();
             });
         } catch (InterruptedException | ExecutionException e) {
+            logger.error("Error in SoundboardWindow.show");
         }
     }
 
