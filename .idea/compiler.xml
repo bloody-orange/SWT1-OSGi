@@ -7,15 +7,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="soundboard-osgi-basedrum" />
+        <module name="soundboard-osgi-hihat" />
         <module name="soundboard-osgi-main" />
+        <module name="soundboard-osgi-manager" />
         <module name="soundboard-osgi-pad" />
+        <module name="soundboard-osgi-snare" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="soundboard-osgi-basedrum" target="1.8" />
+      <module name="soundboard-osgi-hihat" target="1.8" />
       <module name="soundboard-osgi-main" target="1.8" />
+      <module name="soundboard-osgi-manager" target="1.8" />
       <module name="soundboard-osgi-pad" target="1.8" />
-      <module name="SWT1-OSGi" target="1.5" />
+      <module name="soundboard-osgi-snare" target="1.8" />
+      <module name="SWT1-OSGi" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

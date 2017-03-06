@@ -4,8 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SWT1-OSGi.iml" filepath="$PROJECT_DIR$/SWT1-OSGi.iml" />
       <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-basedrum/soundboard-osgi-basedrum.iml" filepath="$PROJECT_DIR$/soundboard-osgi-basedrum/soundboard-osgi-basedrum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-hihat/soundboard-osgi-hihat.iml" filepath="$PROJECT_DIR$/soundboard-osgi-hihat/soundboard-osgi-hihat.iml" />
       <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-main/soundboard-osgi-main.iml" filepath="$PROJECT_DIR$/soundboard-osgi-main/soundboard-osgi-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-manager/soundboard-osgi-manager.iml" filepath="$PROJECT_DIR$/soundboard-osgi-manager/soundboard-osgi-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-pad/soundboard-osgi-pad.iml" filepath="$PROJECT_DIR$/soundboard-osgi-pad/soundboard-osgi-pad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soundboard-osgi-snare/soundboard-osgi-snare.iml" filepath="$PROJECT_DIR$/soundboard-osgi-snare/soundboard-osgi-snare.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1488772175261
+Build-Jdk: 1.8.0_77
+Built-By: Peter
+Bundle-Activator: swt6.osgi.soundboard.pad.snare.SnareActivator
+Bundle-ManifestVersion: 2
+Bundle-Name: soundboard-osgi-snare
+Bundle-SymbolicName: swt6.soundboard-osgi-snare
+Bundle-Version: 1.0.0
+Created-By: Apache Maven Bundle Plugin
+Export-Package: swt6.osgi.soundboard.pad.snare;version="1.0";uses:="java
+ fx.scene.image,org.osgi.framework,org.osgi.service.event,swt6.osgi.soun
+ dboard.pad"
+Import-Package: swt6.osgi.soundboard.pad;version="[1.0,2.0)",org.osgi.se
+ rvice.event;version="[1.3,2.0)",org.osgi.framework;version="[1.3,2.0)",
+ javafx.scene.image
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.2.0.201605172007

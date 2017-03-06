@@ -1,0 +1,5 @@
+swt6\osgi\soundboard\SoundboardWindow.class
+swt6\osgi\soundboard\SoundboardActivator.class
+swt6\osgi\util\JavaFxUtils.class
+swt6\osgi\soundboard\BeatLineView.class
+swt6\osgi\soundboard\SoundboardManagerTrackerCustomizer.class
